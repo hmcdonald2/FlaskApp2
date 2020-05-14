@@ -21,7 +21,12 @@
 
     The text of the file note saved was: <br> <br>
 
-    <i>{{txt}}</i>
+    {% for line in txt %}
+
+    <i>{{line}}</i> <br><br>
+
+    {% endfor %}
+
 
 </p>
 
@@ -30,10 +35,13 @@
 
     The following to-do items have also been saved to your to-do list: <br> <br>
 
-    <i>{{tdo}}</i>
+    {% for line in tdo %}
+
+    <i>{{line}}</i> <br><br>
+
+    {% endfor %}
 
 </p>
 
-<!--    todo show text and details of file note as saved-->
 
 {% endblock %}
