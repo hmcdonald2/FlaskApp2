@@ -1,0 +1,103 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+
+
+<!--<div class="card">-->
+
+<h1 class="headings">FILE NOTE GENERATOR</h1>
+
+
+<form action="/seefn" method="post">
+<div class="lblz">
+
+        <label>Select Matter Name:</label>
+
+</div>
+
+<div class="custom-select" style="width:200px;">
+    <input type="text" list="mname" name="mname" />
+    <datalist id="mname">
+        <option disabled selected value>Choose Matter</option>
+        {% for name in namelist %}
+        <option value="{{name}}">{{name}}</option>
+        {% endfor %}
+    </datalist>
+</div>
+
+<div class="lblz">
+
+    <label>Attendance Type:</label>
+
+</div>
+<div class="atttype">
+
+        {% for type in attendtype %}
+        <label class="container">{{type}}
+            <input type="checkbox" name="{{type}}">
+            <span class="checkmark"></span>
+        </label>
+        {% endfor %}
+</div>
+<div>
+
+    <label>Attendance Upon:</label>
+
+</div>
+<div class="atton">
+
+        {% for person in attendupon %}
+        <label class="container">{{person}}
+            <input type="checkbox" name="{{person}}">
+            <span class="checkmark"></span>
+        </label>
+        {% endfor %}
+</div>
+<div class="lblz" >
+
+    <label>Text of the file note:</label>
+
+</div>
+
+<div class="textbox">
+
+    <textarea name="text" rows="10" columns="30"></textarea>
+    
+</div>
+<div class="lblz" >
+
+    <label>Follow up to do items:</label>
+
+</div>
+
+<div class="textbox">
+
+    <textarea name="tdo" rows="5" columns="30"></textarea>
+
+</div>
+
+
+<div class="lblz" >
+
+    <label>Make sure you submit:
+    </label>
+
+</div>
+<div class="submit">
+
+    <input type="submit" value="See file note">
+    
+</div>
+
+</form>
+
+<!--</div>-->
+<script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
+
+
+
+{% endblock %}
